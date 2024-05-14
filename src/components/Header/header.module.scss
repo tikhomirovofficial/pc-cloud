@@ -1,0 +1,19 @@
+.header {
+    padding: 3rem 0;
+    .nav {
+        .item {
+            font-size: 1.4rem;
+            color: #101010;
+        }
+    }
+    .right {
+        .favorites {
+            top: -16%;
+            right: -50%;
+        }
+        .cart {
+            top: -16%;
+            right: -35%;
+        }
+    }
+}
