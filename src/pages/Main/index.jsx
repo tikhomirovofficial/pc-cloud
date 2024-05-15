@@ -1,6 +1,7 @@
 import React from 'react'
 import { AppContainer } from '../../components/containers/AppContainer'
 import styles from './main.module.scss'
+import { Product } from '../../components/Product'
 
 export const Main = () => {
     return (
@@ -18,13 +19,23 @@ export const Main = () => {
             </section>
             <section className={styles.catalog}>
                 <AppContainer>
-                    <div className={"f-column"}>
+                    <div className={"f-column gap-20"}>
                         <div className={`${styles.part} f-column gap-20`}>
                             <h3 className={"fw-6"}>Готовые ПК</h3>
                         </div>
+                        <div className={"d-f gap-30 flex-wrap"}>
+                            <Product />
+                            <Product />
+                            <Product />
+                            <Product />
+                            <Product />
+                            <Product />
+                            <Product />
+                            <Product />
+                        </div>
                     </div>
                 </AppContainer>
-            </section>
+            </section >
         </>
     )
 }

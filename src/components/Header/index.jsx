@@ -20,11 +20,11 @@ export const Header = () => {
                     </nav>
                     <div className={`${styles.right} f-c-row gap-30`}>
                         <div className="p-rel">
-                            <HeartIcon height={22} />
+                            <HeartIcon height={24} width={21} />
                             <div className={`${styles.favorites} p-abs count f-c-col fw-6`}>1</div>
                         </div>
                         <div className="p-rel">
-                            <CartIcon height={22} />
+                            <CartIcon height={24} width={25} />
                             <div className={`${styles.cart} p-abs count f-c-col fw-6`}>14</div>
                         </div>
                     </div>

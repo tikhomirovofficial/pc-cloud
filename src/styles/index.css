@@ -15,3 +15,12 @@ html {
   background: #5c59dd;
   font-size: 1rem;
 }
+.saleLine {
+  width: calc(100% + 0.5rem);
+  border-radius: 2px;
+  top: 85%;
+  transform: rotateZ(-12deg) translateY(-70%) translateX(34%);
+  height: 1px;
+  left: -40%;
+  background: #ff2000;
+}
