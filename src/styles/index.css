@@ -1,7 +1,9 @@
 html {
   font-size: 10px;
 }
-
+.App {
+  min-height: 100vh;
+}
 .wrapper {
   max-width: 142rem;
   padding: 0 1.5rem;
@@ -23,4 +25,16 @@ html {
   height: 1px;
   left: -40%;
   background: #ff2000;
+}
+.title {
+  font-size: 2.6rem;
+  font-weight: 600;
+}
+.whiteShadow {
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.08);
+  background: white;
+}
+.salePrice {
+  color: gray;
+  font-size: 1.2rem;
 }

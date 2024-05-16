@@ -81,7 +81,7 @@ export const DeliveryCarIcon = ({ height = 13, width = 18, stroke = "", fill = "
 }
 export const TrashIcon = ({ height = 13, width = 18, stroke = "", fill = "#838383" }) => {
     return (
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width={width} height={height} viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.5 4.4H22V6.6H19.8V20.9C19.8 21.1917 19.6841 21.4715 19.4778 21.6778C19.2715 21.8841 18.9917 22 18.7 22H3.3C3.00826 22 2.72847 21.8841 2.52218 21.6778C2.31589 21.4715 2.2 21.1917 2.2 20.9V6.6H0V4.4H5.5V1.1C5.5 0.808262 5.61589 0.528473 5.82218 0.322182C6.02847 0.115892 6.30826 0 6.6 0H15.4C15.6917 0 15.9715 0.115892 16.1778 0.322182C16.3841 0.528473 16.5 0.808262 16.5 1.1V4.4ZM17.6 6.6H4.4V19.8H17.6V6.6ZM12.5554 13.2L14.5002 15.1448L12.9448 16.7002L11 14.7554L9.0552 16.7002L7.4998 15.1448L9.4446 13.2L7.4998 11.2552L9.0552 9.6998L11 11.6446L12.9448 9.6998L14.5002 11.2552L12.5554 13.2ZM7.7 2.2V4.4H14.3V2.2H7.7Z" fill="#DF6464" />
         </svg>
     )
@@ -123,6 +123,7 @@ export const EmptyCartIcon = ({ height = 416, width = 542, stroke = "", fill = "
         </svg>
     )
 }
+
 export const LogoIcon = ({ height = 24, width = 165, stroke = "", fill = "#838383" }) => {
     return (
         <svg width={width} height={height} viewBox="0 0 165 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,6 +132,52 @@ export const LogoIcon = ({ height = 24, width = 165, stroke = "", fill = "#83838
         </svg>
     )
 }
+
+export const GeoIcon = ({ height = 22, width = 19, stroke = "", fill = "#838383" }) => {
+    return (
+        <svg width={width} height={height} viewBox="0 0 19 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.5 22L2.78245 15.5563C1.45386 14.2819 0.549086 12.6581 0.182536 10.8905C-0.184014 9.12277 0.00412391 7.29051 0.723159 5.62539C1.4422 3.96027 2.65983 2.53707 4.2221 1.53576C5.78436 0.534448 7.62108 0 9.5 0C11.3789 0 13.2156 0.534448 14.7779 1.53576C16.3402 2.53707 17.5578 3.96027 18.2768 5.62539C18.9959 7.29051 19.184 9.12277 18.8175 10.8905C18.4509 12.6581 17.5461 14.2819 16.2176 15.5563L9.5 22ZM14.725 14.1246C15.7583 13.1333 16.4619 11.8704 16.747 10.4956C17.032 9.12075 16.8856 7.69569 16.3264 6.40064C15.7671 5.10558 14.82 3.99868 13.605 3.21991C12.3899 2.44114 10.9614 2.02548 9.5 2.02548C8.03865 2.02548 6.61011 2.44114 5.39503 3.21991C4.17995 3.99868 3.2329 5.10558 2.67363 6.40064C2.11436 7.69569 1.96799 9.12075 2.25303 10.4956C2.53808 11.8704 3.24172 13.1333 4.275 14.1246L9.5 19.1366L14.725 14.1246ZM9.5 11.1377C8.9401 11.1377 8.40313 10.9243 8.00722 10.5445C7.61131 10.1648 7.38889 9.64969 7.38889 9.11262C7.38889 8.57554 7.61131 8.06047 8.00722 7.6807C8.40313 7.30093 8.9401 7.08757 9.5 7.08757C10.0599 7.08757 10.5969 7.30093 10.9928 7.6807C11.3887 8.06047 11.6111 8.57554 11.6111 9.11262C11.6111 9.64969 11.3887 10.1648 10.9928 10.5445C10.5969 10.9243 10.0599 11.1377 9.5 11.1377Z" fill="#101010" />
+        </svg>
+    )
+}
+export const ArrowDownIcon = ({ height = 12, width = 12, stroke = "", fill = "#838383" }) => {
+    return (
+        <svg width={width} height={height} viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 3L5 7L1 3" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    )
+}
+export const CardPay = ({ height = 18, width = 22, stroke = "", fill = "#838383" }) => {
+    return (
+        <svg width={width} height={height} viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6.5L2 6.5" stroke="#414141" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M9 12.5H4" stroke="#414141" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M21 12.6728C21 12.6728 20.9957 5.30219 20.9957 5.29067C20.9772 2.6408 19.0043 1 15.9951 1L6.00489 0.999999C2.98045 0.999999 1 2.65328 1 5.32619C1 5.32619 1.00326 12.6959 1.00326 12.7084C1.02173 15.3582 2.99565 17 6.00489 17L15.9951 17C19.0196 17 21 15.3458 21 12.6728Z" stroke="#434343" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    )
+}
+export const CashPay = ({ height = 20, width = 22, stroke = "", fill = "#838383" }) => {
+    return (
+        <svg width={width} height={height} viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.6389 12.3958H16.5906C15.1042 12.3949 13.8993 11.191 13.8984 9.70452C13.8984 8.21807 15.1042 7.01416 16.5906 7.01324H20.6389" stroke="#434343" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M17.0485 9.64288H16.7369" stroke="#434343" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.74766 1H15.3911C18.2892 1 20.6388 3.34951 20.6388 6.24766V13.4247C20.6388 16.3229 18.2892 18.6724 15.3911 18.6724H6.74766C3.84951 18.6724 1.5 16.3229 1.5 13.4247V6.24766C1.5 3.34951 3.84951 1 6.74766 1Z" stroke="#434343" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M6.03564 5.53814H11.4346" stroke="#434343" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+
+    )
+}
+
+export const SuccessIcon = ({ height = 95, width = 95, stroke = "", fill = "#838383" }) => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 95 95" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M31.8237 1.81397C42.1346 -0.604654 52.8654 -0.604656 63.1763 1.81397C78.0667 5.30677 89.6932 16.9333 93.186 31.8237C95.6047 42.1346 95.6047 52.8654 93.186 63.1763C89.6932 78.0667 78.0667 89.6932 63.1763 93.186C52.8654 95.6047 42.1346 95.6046 31.8237 93.186C16.9333 89.6932 5.30678 78.0667 1.81397 63.1764C-0.604657 52.8654 -0.604657 42.1346 1.81397 31.8236C5.30678 16.9333 16.9333 5.30677 31.8237 1.81397ZM63.6099 39.4636C64.7523 38.2396 64.6861 36.3214 63.4622 35.179C62.2383 34.0367 60.32 34.1029 59.1777 35.3268L43.6354 51.9792L35.7494 44.0932C34.5656 42.9094 32.6462 42.9094 31.4624 44.0932C30.2786 45.2771 30.2786 47.1965 31.4624 48.3803L41.5671 58.485C42.1484 59.0663 42.9409 59.3866 43.7628 59.3724C44.5848 59.3582 45.3658 59.0108 45.9267 58.4098L63.6099 39.4636Z" fill="#59D659" />
+        </svg>
+
+    )
+}
+
+
 
 
 

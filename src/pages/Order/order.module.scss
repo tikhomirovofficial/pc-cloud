@@ -1,0 +1,59 @@
+.order {
+    .block {
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .form {
+            border-radius: 2rem;
+            padding: 3rem;
+            height: fit-content;
+            .geoText {
+                font-size: 1.4rem;
+            }
+            .map {
+                width: 100%;
+                border-radius: 1.6rem;
+                height: 14rem;
+                background: rgb(173, 173, 173);
+            }
+        }
+        .total {
+            border-radius: 2rem;
+            padding: 2.4rem;
+            height: fit-content;
+            .product {
+                .iconPlace {
+                    min-width: 2.4rem;
+                    min-height: 2.4rem;
+                }
+                span {
+                    color: gray;
+                    font-size: 2rem;
+                }
+                b {
+                    font-weight: 600;
+                    font-size: 1.6rem;
+                }
+            }
+            .dropDown {
+                top: 100%;
+                padding: 1.6rem;
+                z-index: 3;
+                border-radius: 1rem;
+                left: 0;
+                .item {
+                    cursor: pointer;
+                    transition: 0.4s color;
+                    font-size: 1.4rem;
+                    &:hover {
+                        color: #5b59ddb8;
+                    }
+                }
+            }
+        }
+        .orderBtn {
+            padding: 1.5rem;
+        }
+    }
+}

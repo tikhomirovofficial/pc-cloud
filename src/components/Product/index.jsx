@@ -5,7 +5,7 @@ import styles from './product.module.scss'
 
 export const Product = () => {
     return (
-        <div className={`${styles.product} f-column gap-10`}>
+        <div className={`${styles.product} whiteShadow f-column gap-10`}>
             <div className="f-column">
                 <div className={"cur-pointer w-content"}>
                     {
@@ -35,7 +35,7 @@ export const Product = () => {
                     </div>
                     {
                         true ?
-                            <Button /> :
+                            <Button title={"В корзину"} /> :
                             <div className={`${styles.bottom} d-f al-center gap-5`}>
                                 <div className={`${styles.countBtn} f-c-col`}>
                                     <p>-</p>

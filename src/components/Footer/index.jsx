@@ -27,18 +27,18 @@ export const Footer = () => {
                             <div className={styles.navItem}>Наш адрес: проспект Победы 10</div>
                         </div>
                     </div>
-                    <div className="d-f gap-20">
+                    <div className="d-f gap-5">
                         <div>
-                            <VkIcon />
+                            <VkIcon height={24} />
                         </div>
                         <div>
-                            <InstagramIcon />
+                            <InstagramIcon height={26} />
                         </div>
                         <div>
-                            <TelegramIcon />
+                            <TelegramIcon height={27} />
                         </div>
                         <div>
-                            <WhatsappIcon />
+                            <WhatsappIcon height={26} />
                         </div>
                     </div>
                 </div>
