@@ -17,4 +17,15 @@
             right: -35%;
         }
     }
+    .menu {
+        display: none;
+    }
+    @media (max-width: 1070px) {
+        .nav {
+            display: none;
+        }
+        .menu {
+            display: block;
+        }
+    }
 }

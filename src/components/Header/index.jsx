@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppContainer } from '../containers/AppContainer'
 import styles from './header.module.scss'
-import { HeartIcon, LogoIcon, CartIcon } from '../../icons'
+import { HeartIcon, LogoIcon, CartIcon, MenuIcon } from '../../icons'
 
 export const Header = () => {
     return (
@@ -18,7 +18,8 @@ export const Header = () => {
                         <div className={`${styles.item} fw-5`}>Периферия</div>
                         <div className={`${styles.item} fw-5`}>Контакты</div>
                     </nav>
-                    <div className={`${styles.right} f-c-row gap-30`}>
+
+                    <div className={`${styles.right} f-c-row gap-40`}>
                         <div className="p-rel">
                             <HeartIcon height={24} width={21} />
                             <div className={`${styles.favorites} p-abs count f-c-col fw-6`}>1</div>
@@ -26,6 +27,9 @@ export const Header = () => {
                         <div className="p-rel">
                             <CartIcon height={24} width={25} />
                             <div className={`${styles.cart} p-abs count f-c-col fw-6`}>14</div>
+                        </div>
+                        <div className={styles.menu}>
+                            <MenuIcon />
                         </div>
                     </div>
                 </div>

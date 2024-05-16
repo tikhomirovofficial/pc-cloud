@@ -7,7 +7,7 @@ export const Product = () => {
     return (
         <div className={`${styles.product} whiteShadow f-column gap-10`}>
             <div className="f-column">
-                <div className={"cur-pointer w-content"}>
+                <div className={`${styles.favoriteBtn} cur-pointer w-content`}>
                     {
                         true ? <HeartIcon /> : <HeartFilledIcon />
                     }
@@ -17,29 +17,37 @@ export const Product = () => {
                     <img src="assets/img/product.png" alt="" />
                 </div>
             </div>
-            <div className="f-column gap-30">
-                <div className="f-row-betw">
+            <div className={`${styles.info} f-column gap-30`}>
+                <div className={`${styles.top} f-row-betw`}>
                     <div className={`${styles.title} fw-6`}>Corsair B52 ULTA</div>
                     <div className="d-f gap-5 al-center">
                         <StarIcon height={18} width={18} />
                         <p className={styles.rating}>4.7</p>
                     </div>
                 </div>
-                <div className="f-row-betw">
-                    <div className="d-f al-center gap-10">
-                        {/* <div className={"p-rel"}>
+                <div className={`${styles.bottomInfo} f-row-betw gap-20`}>
+                    <div className={`${styles.priceBlock} d-f al-center gap-10`}>
+                        <div className={"p-rel"}>
                             <b className={styles.salePrice}>125 000 ₽</b>
                             <div className="saleLine p-abs"></div>
-                        </div> */}
+                        </div>
                         <b className={styles.price}>115 000 ₽</b>
                     </div>
                     {
                         true ?
-                            <Button title={"В корзину"} /> :
+                            <div className={`f-row-betw gap-20 w-100p`}>
+                                <Button title={"В корзину"} />
+                                <div className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
+                                    {
+                                        true ? <HeartIcon /> : <HeartFilledIcon />
+                                    }
+
+                                </div>
+                            </div>
+                            :
                             <div className={`${styles.bottom} d-f al-center gap-5`}>
                                 <div className={`${styles.countBtn} f-c-col`}>
                                     <p>-</p>
-
                                 </div>
                                 <div className={styles.count}>15</div>
                                 <div className={`${styles.countBtn} f-c-col`}>

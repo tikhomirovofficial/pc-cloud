@@ -4,7 +4,6 @@ import { AppContainer } from '../../components/containers/AppContainer'
 import { Product } from '../../components/Product'
 
 export const Favorites = () => {
-
     return (
         <section>
             <AppContainer>
