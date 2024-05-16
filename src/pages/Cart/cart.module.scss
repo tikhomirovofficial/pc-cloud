@@ -21,16 +21,45 @@
                 font-size: 1.8rem;
             }
             .button {
-               left: 50%;
-               top: 60%;
-               width: 103%;
-               transform: translateX(-50%);
-               padding: 3rem;
-               border-radius: 2rem;
-               transition: .3s box-shadow;
-               &:hover {
-                box-shadow: 0 0 1.5rem #5b59ddb8;
-               }
+                left: 50%;
+                top: 60%;
+                width: 103%;
+                transform: translateX(-50%);
+                padding: 3rem;
+                border-radius: 2rem;
+                transition: 0.3s box-shadow;
+                &:hover {
+                    box-shadow: 0 0 1.5rem #5b59ddb8;
+                }
+            }
+        }
+    }
+    @media (max-width: 1070px) {
+        .products {
+            flex: 1;
+        }
+        .total {
+            max-width: 30rem;
+        }
+    }
+    @media (max-width: 800px) {
+        .cartBlock {
+            flex-direction: column;
+        }
+        .emptyBlock {
+            svg {
+                width: 90%;
+                height: 200px;
+            }
+        }
+    }
+    @media (max-width: 450px) {
+        .total {
+            max-width: unset;
+            min-width: unset;
+            width: 100% !important;
+            .button {
+                padding: 2rem !important;
             }
         }
     }

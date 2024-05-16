@@ -12,7 +12,7 @@ export const Order = () => {
             <AppContainer>
                 <div className={`f-column gap-40 ${styles.block}`}>
                     <h2 className="title">Оформление заказа</h2>
-                    <div className="d-f jc-between gap-80">
+                    <div className={`d-f jc-between gap-80 ${styles.orderBlock}`}>
                         <div className={`f-06 ${styles.form} whiteShadow f-column gap-30`}>
                             <div className="f-column gap-15">
                                 <h3>Доставка курьером</h3>
@@ -26,7 +26,7 @@ export const Order = () => {
                                 <div className="f-column gap-10">
                                     <InputField placeholder={"Город"} />
                                     <InputField placeholder={"Улица / Район"} />
-                                    <div className="f-row-betw gap-20">
+                                    <div className="f-row-betw gap-5">
                                         <InputField placeholder={"Дом"} />
                                         <InputField placeholder={"Подъезд"} />
                                         <InputField placeholder={"Квартира"} />
@@ -53,7 +53,7 @@ export const Order = () => {
                                                     <p className={"salePrice"}>125 000 ₽</p>
                                                     <div className="saleLine p-abs"></div>
                                                 </div>
-                                                <b>80 999 ₽</b>
+                                                <b className={"txt-nowrap"}>80 999 ₽</b>
                                             </div>
                                         </div>
                                         <div className={`f-row-betw ${styles.product}`}>
@@ -69,13 +69,13 @@ export const Order = () => {
                                                     <p className={"salePrice"}>125 000 ₽</p>
                                                     <div className="saleLine p-abs"></div>
                                                 </div>
-                                                <b>80 999 ₽</b>
+                                                <b className={"txt-nowrap"}>80 999 ₽</b>
                                             </div>
                                         </div>
                                     </div>
                                     <div className={`f-row-betw ${styles.product}`}>
                                         <b>Доставка</b>
-                                        <b>80 999 ₽</b>
+                                        <b className={"txt-nowrap"}>80 999 ₽</b>
                                     </div>
                                     <div className={`f-row-betw ${styles.product}`}>
                                         <b>ИТОГО:</b>
@@ -84,7 +84,7 @@ export const Order = () => {
                                                 <p className={"salePrice"}>125 000 ₽</p>
                                                 <div className="saleLine p-abs"></div>
                                             </div>
-                                            <b>80 999 ₽</b>
+                                            <b className={"txt-nowrap"}>80 999 ₽</b>
                                         </div>
                                     </div>
                                 </div>

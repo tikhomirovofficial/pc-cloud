@@ -13,7 +13,7 @@ export const Cart = () => {
                     !true ?
                         <div className={`f-column gap-40 ${styles.block}`}>
                             <h2 className="title">Корзина</h2>
-                            <div className="d-f jc-between gap-80">
+                            <div className={`${styles.cartBlock} d-f jc-between gap-80`}>
                                 <div className={`f-09 ${styles.products} f-column gap-30`}>
                                     <div className="f-column gap-30">
                                         <CartProduct />
@@ -46,14 +46,13 @@ export const Cart = () => {
                                 </div>
                             </div>
                         </div> :
-                        <div className="f-column gap-40 al-center">
-                            <EmptyCartIcon />
+                        <div className={`f-column gap-40 al-center ${styles.emptyBlock}`}>
+                            <EmptyCartIcon  />
                             <h2 className='title'>Корзина пуста.</h2>
                             <Button title={"Вернуться в каталог товаров"}/>
                         </div>
                 }
             </AppContainer>
         </section>
-
     )
 }

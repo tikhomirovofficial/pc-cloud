@@ -1,6 +1,11 @@
 .header {
     padding: 3rem 0;
     margin-bottom: 5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    background: white;
     .nav {
         .item {
             font-size: 1.4rem;
@@ -20,12 +25,33 @@
     .menu {
         display: none;
     }
+    .menuNav {
+        padding: 2rem;
+        border-radius: 2rem;
+        position: absolute;
+        right: 0;
+        top: 120%;
+        z-index: 5;
+        transform: translateX(100vw);
+        transition: .5s;
+        .item {
+            font-size: 1.4rem;
+        }
+    }
+    .menuOpened {
+        transform: translateX(0);
+    }
     @media (max-width: 1070px) {
         .nav {
             display: none;
         }
         .menu {
             display: block;
+        }
+    }
+    @media (max-width: 650px) {
+        .logo svg{
+            width: 13rem;
         }
     }
 }

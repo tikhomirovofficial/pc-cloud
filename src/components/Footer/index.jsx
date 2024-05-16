@@ -5,11 +5,11 @@ import { InstagramIcon, LogoIcon, TelegramIcon, VkIcon, WhatsappIcon } from '../
 
 export const Footer = () => {
     return (
-        <footer className={styles.footer}>
+        <footer className={`${styles.footer}`}>
             <AppContainer>
-                <div className={`${styles.block} d-f jc-between`}>
+                <div className={`${styles.block} d-f jc-between gap-20`}>
                     <LogoIcon />
-                    <div className={"d-f gap-70"}>
+                    <div className={`${styles.nav} d-f gap-70`}>
                         <div className="f-column gap-20">
                             <div className={styles.navItem}>Готовые ПК</div>
                             <div className={styles.navItem}>Смартфоны</div>

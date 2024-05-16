@@ -37,4 +37,20 @@
     .bottom {
         min-height: 3.6rem;
     }
+    @media (max-width: 450px) {
+        .title {
+            font-size: 1.6rem;
+        }
+        .img {
+            height: 5.8rem;
+            width: 5.8rem;
+            
+        }
+        .price {
+            font-size: 2rem;
+        }
+        & {
+            padding: 1.2rem 1.8rem;
+        }
+    }
 }

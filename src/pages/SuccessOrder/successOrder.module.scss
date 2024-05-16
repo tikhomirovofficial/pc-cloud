@@ -8,4 +8,16 @@
             }
         }
     }
+    @media (max-width: 600px) {
+        .success {
+            flex-direction: column;
+            h2 {
+                font-size: 2rem;
+            }
+            h2, p {
+                text-align: center;
+            }
+        }
+    }
+
 }

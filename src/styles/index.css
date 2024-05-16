@@ -3,6 +3,7 @@ html {
 }
 .App {
   min-height: 100vh;
+  padding-top: 12rem;
 }
 .wrapper {
   max-width: 142rem;
@@ -51,5 +52,13 @@ html {
 @media (max-width: 900px) {
   .wrapper {
     max-width: 80rem;
+  }
+}
+@media (max-width: 600px) {
+  .salePrice {
+    color: gray;
+    font-weight: 500;
+    font-size: 1rem;
+    text-wrap: nowrap;
   }
 }

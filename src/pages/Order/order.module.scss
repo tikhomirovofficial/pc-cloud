@@ -6,7 +6,7 @@
         }
         .form {
             border-radius: 2rem;
-            padding: 3rem;
+            padding: 2.4rem;
             height: fit-content;
             .geoText {
                 font-size: 1.4rem;
@@ -54,6 +54,21 @@
         }
         .orderBtn {
             padding: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .orderBlock {
+                flex-direction: column;
+                gap: 3rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .total {
+                .product {
+                    b {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
         }
     }
 }

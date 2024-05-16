@@ -381,7 +381,9 @@
     display: flex;
     flex-wrap: wrap;
 }
-
+.txt-nowrap {
+    text-wrap: nowrap;
+}
 /*WIDTH*/
 .w-100p {
     width: 100%;
