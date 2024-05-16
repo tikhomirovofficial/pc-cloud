@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppContainer } from '../../components/containers/AppContainer'
 import styles from './main.module.scss'
 import { Product } from '../../components/Product'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllProductsAndCategories } from '../../app/features/products/productsSlice'
 
 export const Main = () => {
+    const dispatch = useDispatch()
+    const { items, categories, loading } = useSelector(state => state.products)
+
+    useEffect(() => {
+        console.log(items);
+    }, [items])
+    
+    useEffect(() => {
+        dispatch(getAllProductsAndCategories())
+    }, [])
     return (
         <>
             <section className={styles.promo}>

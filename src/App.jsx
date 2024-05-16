@@ -16,7 +16,7 @@ const App = () => {
     <div className={"App f-column jc-between"}>
       <div>
         <Header />
-        <Conditions />
+        <Main />
       </div>
       <Footer />
     </div>
