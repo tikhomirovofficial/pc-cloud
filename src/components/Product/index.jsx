@@ -3,7 +3,7 @@ import { HeartIcon, StarIcon, HeartFilledIcon } from '../../icons'
 import { Button } from '../Button'
 import styles from './product.module.scss'
 
-export const Product = () => {
+export const Product = (props) => {
     return (
         <div className={`${styles.product} whiteShadow f-column gap-10`}>
             <div className="f-column">
@@ -14,28 +14,32 @@ export const Product = () => {
 
                 </div>
                 <div className={`${styles.img} p-rel w-100p`}>
-                    <img src="assets/img/product.png" alt="" />
+                    <img src={props.image} alt="" />
                 </div>
             </div>
             <div className={`${styles.info} f-column gap-30`}>
                 <div className={`${styles.top} f-row-betw`}>
-                    <div className={`${styles.title} fw-6`}>Corsair B52 ULTA</div>
+                    <div className={`${styles.title} fw-6`}>{props.name}</div>
                     <div className="d-f gap-5 al-center">
                         <StarIcon height={18} width={18} />
-                        <p className={styles.rating}>4.7</p>
+                        <p className={styles.rating}>{props.rating}</p>
                     </div>
                 </div>
                 <div className={`${styles.bottomInfo} f-row-betw gap-20`}>
                     <div className={`${styles.priceBlock} d-f al-center gap-10`}>
-                        <div className={"p-rel"}>
-                            <b className={styles.salePrice}>125 000 ₽</b>
-                            <div className="saleLine p-abs"></div>
-                        </div>
-                        <b className={styles.price}>115 000 ₽</b>
+                        {
+                            props.sale_price ?
+                                <div className={"p-rel"}>
+                                    <b className={styles.salePrice}>{props.sale_price} ₽</b>
+                                    <div className="saleLine p-abs"></div>
+                                </div> : null
+                        }
+
+                        <b className={styles.price}>{props.price} ₽</b>
                     </div>
                     {
-                        true ?
-                            <div className={`f-row-betw gap-20 w-100p`}>
+                        true ?  
+                            <div className={`${styles.inCartBlock} f-row-betw gap-20 w-100p`}>
                                 <Button title={"В корзину"} />
                                 <div className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
                                     {

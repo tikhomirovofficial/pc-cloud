@@ -6,16 +6,19 @@
     border-radius: 1.8rem;
     .title {
         font-size: 1.6rem;
+        max-width: 80%;
     }
     .img {
         height: 26rem;
-        width: 100%;
+        width: 26rem;
+        align-self: center;
         img {
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
+            width: auto;
+            height: 90%;
         }
     }
     .favoriteMobileBtn {
@@ -39,6 +42,9 @@
         min-width: 2rem;
         text-align: center;
     }
+    .inCartBlock {
+        flex-direction: row-reverse;
+    }
     .countBtn {
         background: #5c59dd;
         height: 2.3rem;
@@ -53,6 +59,12 @@
         min-height: 3.6rem;
     }
     @media (max-width: 1070px) {
+        .favoriteMobileBtn {
+            display: block;
+        }
+        .favoriteBtn {
+            display: none;
+        }
         & {
             min-width: 27rem;
             max-width: 27rem;
@@ -67,14 +79,7 @@
         }
         .img {
             height: 16rem;
-            width: 100%;
-            img {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 65%;
-            }
+            width: 16rem;
         }
     }
     @media (max-width: 900px) {
@@ -83,38 +88,19 @@
             max-width: unset;
             width: 100%;
             justify-content: space-between;
-            align-items: center;
-            min-height: unset;
-            flex-direction: row;
+            align-items: center !important;
+            min-height: unset !important;
+            flex-direction: row !important;
             .info {
                 width: 100%;
                 justify-content: space-between;
                 height: 100%;
             }
+           
         }
         .img {
             height: 12rem;
-            width: 18rem;
-            img {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 65%;
-            }
-        }
-        @media (max-width: 900px) {
-            .img {
-                height: 10rem;
-                width: 14rem;
-                img {
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 65%;
-                }
-            }
+            width: 12rem;
         }
         @media (max-width: 526px) {
             .favoriteMobileBtn {
@@ -130,35 +116,13 @@
                 gap: 1rem;
                 align-items: flex-start;
             }
-           
+
             .favoriteBtn {
                 display: none;
             }
             .img {
-                height: 12rem;
-                width: 12rem;
-                img {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-
-                    transform: translateX(-50%) translateY(-50%);
-                    width: 83%;
-                }
-            }
-        }
-        @media (max-width: 900px) {
-            .img {
-                height: 10rem;
-                width: 10rem;
-                img {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-
-                    transform: translateX(-50%) translateY(-50%);
-                    width: 83%;
-                }
+                height: 8rem;
+                width: 8rem;
             }
         }
     }

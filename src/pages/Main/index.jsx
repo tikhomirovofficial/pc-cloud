@@ -4,15 +4,16 @@ import styles from './main.module.scss'
 import { Product } from '../../components/Product'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProductsAndCategories } from '../../app/features/products/productsSlice'
+import { getProductsWithCategories } from '../../utils/productsStructure'
 
 export const Main = () => {
     const dispatch = useDispatch()
     const { items, categories, loading } = useSelector(state => state.products)
 
     useEffect(() => {
-        console.log(items);
+        console.log(getProductsWithCategories(categories, items));
     }, [items])
-    
+
     useEffect(() => {
         dispatch(getAllProductsAndCategories())
     }, [])
@@ -31,21 +32,25 @@ export const Main = () => {
             </section>
             <section className={styles.catalog}>
                 <AppContainer>
-                    <div className={"f-column gap-20"}>
-                        <div className={`${styles.part} f-column gap-20`}>
-                            <h3 className={"fw-6"}>Готовые ПК</h3>
-                        </div>
-                        <div className={"d-f gap-30 flex-wrap"}>
-                            <Product />
-                            <Product />
-                            <Product />
-                            <Product />
-                            <Product />
-                            <Product />
-                            <Product />
-                            <Product />
-                        </div>
+                    <div className="f-column gap-40">
+                        {
+                            getProductsWithCategories(categories, items).map(item => (
+                                <div className={"f-column gap-20"}>
+                                    <div className={`${styles.part} f-column gap-20`}>
+                                        <h3 className={"fw-6"}>{item.name}</h3>
+                                    </div>
+                                    <div className={"d-f gap-30 flex-wrap"}>
+                                        {
+                                            item.products.map(item => (
+                                                <Product {...item} />
+                                            ))
+                                        }
+                                    </div>
+                                </div>
+                            ))
+                        }
                     </div>
+
                 </AppContainer>
             </section >
         </>
