@@ -5,10 +5,12 @@ import { Product } from '../../components/Product'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProductsAndCategories } from '../../app/features/products/productsSlice'
 import { getProductsWithCategories } from '../../utils/productsStructure'
+import { useProduct } from '../../hooks/useProduct'
 
 export const Main = () => {
     const dispatch = useDispatch()
     const { items, categories, loading } = useSelector(state => state.products)
+    const productActions = useProduct()
 
     useEffect(() => {
         console.log(getProductsWithCategories(categories, items));
@@ -42,7 +44,11 @@ export const Main = () => {
                                     <div className={"d-f gap-30 flex-wrap"}>
                                         {
                                             item.products.map(item => (
-                                                <Product {...item} />
+                                                <Product
+                                                    inCart={productActions.checkInCart(item.id)}
+                                                    actions={productActions}
+                                                    {...item}
+                                                />
                                             ))
                                         }
                                     </div>

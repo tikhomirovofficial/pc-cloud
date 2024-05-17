@@ -2,15 +2,18 @@ import React from 'react'
 import { AppContainer } from '../containers/AppContainer'
 import styles from './header.module.scss'
 import { HeartIcon, LogoIcon, CartIcon, MenuIcon } from '../../icons'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export const Header = () => {
+    const { items } = useSelector(state => state.cart)
     return (
         <header className={styles.header}>
             <AppContainer>
                 <div className={"header__block f-row-betw"}>
-                    <div className={styles.logo}>
+                    <Link to={"/"} className={styles.logo}>
                         <LogoIcon />
-                    </div>
+                    </Link>
                     <nav className={`${styles.nav} d-f gap-60`}>
                         <div className={`${styles.item} fw-5`}>Готовые ПК</div>
                         <div className={`${styles.item} fw-5`}>Смартфоны</div>
@@ -19,14 +22,15 @@ export const Header = () => {
                         <div className={`${styles.item} fw-5`}>Контакты</div>
                     </nav>
                     <div className={`${styles.right} f-c-row gap-40`}>
-                        <div className="p-rel">
+                        <Link to={"/favorites"} className="p-rel">
                             <HeartIcon height={24} width={21} />
                             <div className={`${styles.favorites} p-abs count f-c-col fw-6`}>1</div>
-                        </div>
-                        <div className="p-rel">
+                        </Link>
+                        <Link to={"/cart"} className="p-rel">
                             <CartIcon height={24} width={25} />
-                            <div className={`${styles.cart} p-abs count f-c-col fw-6`}>14</div>
-                        </div>
+                            {items.length ? <div className={`${styles.cart} p-abs count f-c-col fw-6`}>{items.length}</div> : null }
+                           
+                        </Link>
                         <div className={`${styles.menu} p-rel`}>
                             <div>
                                 <MenuIcon />

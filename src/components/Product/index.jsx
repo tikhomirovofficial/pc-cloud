@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { HeartIcon, StarIcon, HeartFilledIcon } from '../../icons'
 import { Button } from '../Button'
 import styles from './product.module.scss'
+import { useProduct } from '../../hooks/useProduct'
 
 export const Product = (props) => {
+    const countInCart = props.inCart ? props.actions.getCartCountProduct(props.id) : 0
+
+    useEffect(() => {
+        console.log(props);
+    }, [])
+
     return (
         <div className={`${styles.product} whiteShadow f-column gap-10`}>
             <div className="f-column">
@@ -30,17 +37,17 @@ export const Product = (props) => {
                         {
                             props.sale_price ?
                                 <div className={"p-rel"}>
-                                    <b className={styles.salePrice}>{props.sale_price} ₽</b>
+                                    <b className={styles.salePrice}>{props.price} ₽</b>
                                     <div className="saleLine p-abs"></div>
                                 </div> : null
                         }
 
-                        <b className={styles.price}>{props.price} ₽</b>
+                        <b className={styles.price}>{props.sale_price || props.price} ₽</b>
                     </div>
                     {
-                        true ?  
+                        props.inCart === false ?
                             <div className={`${styles.inCartBlock} f-row-betw gap-20 w-100p`}>
-                                <Button title={"В корзину"} />
+                                <Button onClick={() => props.actions.addToCart(props.id)} title={"В корзину"} />
                                 <div className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
                                     {
                                         true ? <HeartIcon /> : <HeartFilledIcon />
@@ -49,13 +56,20 @@ export const Product = (props) => {
                                 </div>
                             </div>
                             :
-                            <div className={`${styles.bottom} d-f al-center gap-5`}>
-                                <div className={`${styles.countBtn} f-c-col`}>
-                                    <p>-</p>
+                            <div className={`${styles.inCartBlock} f-row-betw gap-20 w-100p`}>
+                                <div className={`${styles.bottom} d-f al-center gap-5`}>
+                                    <div onClick={() => countInCart > 1 ? props.actions.minusFromCart(props.id) : props.actions.deleteFromCart(props.id)} className={`${styles.countBtn} f-c-col`}>
+                                        <p>-</p>
+                                    </div>
+                                    <div className={styles.count}>{countInCart}</div>
+                                    <div onClick={() => props.actions.plusToCart(props.id)} className={`${styles.countBtn} f-c-col`}>
+                                        <p>+</p>
+                                    </div>
                                 </div>
-                                <div className={styles.count}>15</div>
-                                <div className={`${styles.countBtn} f-c-col`}>
-                                    <p>+</p>
+                                <div className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
+                                    {
+                                        true ? <HeartIcon /> : <HeartFilledIcon />
+                                    }
                                 </div>
                             </div>
                     }
