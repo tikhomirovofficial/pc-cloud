@@ -19,6 +19,7 @@ export const Main = () => {
     useEffect(() => {
         dispatch(getAllProductsAndCategories())
     }, [])
+
     return (
         <>
             <section className={styles.promo}>
@@ -46,6 +47,7 @@ export const Main = () => {
                                             item.products.map(item => (
                                                 <Product
                                                     inCart={productActions.checkInCart(item.id)}
+                                                    inFavorites={productActions.checkInFavorites(item.id)}
                                                     actions={productActions}
                                                     {...item}
                                                 />

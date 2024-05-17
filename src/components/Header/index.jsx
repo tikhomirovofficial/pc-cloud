@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux'
 
 export const Header = () => {
     const { items } = useSelector(state => state.cart)
+    const favorites = useSelector(state => state.favorites)
+
     return (
         <header className={styles.header}>
             <AppContainer>
@@ -24,12 +26,13 @@ export const Header = () => {
                     <div className={`${styles.right} f-c-row gap-40`}>
                         <Link to={"/favorites"} className="p-rel">
                             <HeartIcon height={24} width={21} />
-                            <div className={`${styles.favorites} p-abs count f-c-col fw-6`}>1</div>
+                            {favorites.items.length ? <div className={`${styles.favorites} p-abs count f-c-col fw-6`}>{favorites.items.length}</div> : null}
+
                         </Link>
                         <Link to={"/cart"} className="p-rel">
                             <CartIcon height={24} width={25} />
-                            {items.length ? <div className={`${styles.cart} p-abs count f-c-col fw-6`}>{items.length}</div> : null }
-                           
+                            {items.length ? <div className={`${styles.cart} p-abs count f-c-col fw-6`}>{items.length}</div> : null}
+
                         </Link>
                         <div className={`${styles.menu} p-rel`}>
                             <div>

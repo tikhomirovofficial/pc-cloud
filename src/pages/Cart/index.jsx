@@ -6,6 +6,7 @@ import { Button } from '../../components/Button'
 import { DeliveryCarIcon, EmptyCartIcon } from '../../icons'
 import { useSelector } from 'react-redux'
 import { useProduct } from '../../hooks/useProduct'
+import { Link } from 'react-router-dom'
 
 export const Cart = () => {
     const { items, totalSum, totalSumWithSales } = useSelector(state => state.cart)
@@ -52,10 +53,13 @@ export const Cart = () => {
                                                     </div> : null
                                             }
 
-                                            <b>{!sumEquals ? totalSumWithSales : totalSum} ₽</b>
+                                            <b>{(!sumEquals ? totalSumWithSales : totalSum) + 499} ₽</b>
                                         </div>
                                     </div>
-                                    <Button className={`p-abs ${styles.button}`} title={"Перейти к оформлению"} />
+                                    <Link to={"/order"}>
+                                        <Button className={`p-abs ${styles.button}`} title={"Перейти к оформлению"} />
+                                    </Link>
+
                                 </div>
                             </div>
                         </div> :

@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { getFromStorage } from '../../../utils/localStorageExplorer'
 
 const initialState = {
-    items: [],
+    items: getFromStorage("cart") || [],
     totalSum: 0,
     totalSumWithSales: 0
 
@@ -15,7 +16,7 @@ export const cartSlice = createSlice({
             state.totalSum = action.payload
         },
         setTotalSalesSum: (state, action) => {
-            state.totalSum = action.payload
+            state.totalSumWithSales = action.payload
         },
         addProduct: (state, action) => {
             state.items = [...state.items, {
@@ -53,10 +54,15 @@ export const cartSlice = createSlice({
         removeProduct: (state, action) => {
             state.items = state.items.filter(item => item.id !== action.payload);
         },
+        resetCart: (state) => {
+            state.items = []
+            state.totalSum = 0
+            state.totalSumWithSales = 0
+        }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { plusProduct, minusProduct, setTotalSalesSum, setTotalSum, removeProduct, addProduct } = cartSlice.actions
+export const { plusProduct, minusProduct, setTotalSalesSum, resetCart, setTotalSum, removeProduct, addProduct } = cartSlice.actions
 
 export const cartReducer = cartSlice.reducer;

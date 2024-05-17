@@ -4,28 +4,37 @@ import { CardPay, CashPay, ArrowDownIcon } from '../../icons'
 
 export const PaymentWay = () => {
     const [selectOpened, setSelectOpened] = useState(false)
+    const [currentPayment, setCurrentPayment] = useState(1)
+
     const [paymentWays] = useState([
         {
             id: 1,
             name: "Оплата по банковской карте",
-            Icon: <CardPay />
+            Icon: CardPay
         },
         {
             id: 2,
             name: "Оплата наличными при получении",
-            Icon: <CardPay />
+            Icon: CashPay
         }
     ])
+    const PaymentIcon = paymentWays.find(item => item.id === currentPayment).Icon
+
+    const handleSelectPayment = (id) => {
+        setCurrentPayment(id)
+        setSelectOpened(false)
+    }
+
     return (
         <div className={`whiteShadow ${styles.total} p-rel f-column gap-20`}>
             <h3>Способ оплаты</h3>
             <div className="f-column gap-10 p-rel">
-                <div className={`f-row-betw ${styles.product}`}>
+                <div onClick={() => setSelectOpened(!selectOpened)} className={`f-row-betw ${styles.product}`}>
                     <div className="d-f al-center gap-10">
                         <div className={`f-c-col ${styles.iconPlace}`}>
-                            <CashPay />
+                            <PaymentIcon />
                         </div>
-                        <b>Оплата на счет банковской карты VISA</b>
+                        <b>{paymentWays.find(item => item.id === currentPayment).name}</b>
                     </div>
                     <div className="d-f al-center gap-10">
                         <ArrowDownIcon />
@@ -34,12 +43,16 @@ export const PaymentWay = () => {
                 {
                     selectOpened ?
                         <div className={`f-column w-100p ${styles.dropDown} whiteShadow p-abs gap-5`}>
-                            <div className={styles.item}>Оплата на счет банковской карты VISA</div>
-                            <div className={styles.item}>Оплата наличными при получении</div>
+                            {
+                                paymentWays.map(item => (
+                                    <div onClick={() => handleSelectPayment(item.id)} className={styles.item}>{item.name}</div>
+                                ))
+                            }
+
                         </div> : null
                 }
 
             </div>
-        </div>
+        </div >
     )
 }

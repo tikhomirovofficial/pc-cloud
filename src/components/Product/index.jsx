@@ -2,10 +2,17 @@ import React, { useEffect } from 'react'
 import { HeartIcon, StarIcon, HeartFilledIcon } from '../../icons'
 import { Button } from '../Button'
 import styles from './product.module.scss'
-import { useProduct } from '../../hooks/useProduct'
 
 export const Product = (props) => {
     const countInCart = props.inCart ? props.actions.getCartCountProduct(props.id) : 0
+
+    const handleFavorites = () => {
+        if (!props.inFavorites) {
+            props.actions.addToFavorites(props.id)
+            return
+        }
+        props.actions.deleteFromFavorites(props.id)
+    }
 
     useEffect(() => {
         console.log(props);
@@ -14,9 +21,9 @@ export const Product = (props) => {
     return (
         <div className={`${styles.product} whiteShadow f-column gap-10`}>
             <div className="f-column">
-                <div className={`${styles.favoriteBtn} cur-pointer w-content`}>
+                <div onClick={handleFavorites} className={`${styles.favoriteBtn} cur-pointer w-content`}>
                     {
-                        true ? <HeartIcon /> : <HeartFilledIcon />
+                        !props.inFavorites ? <HeartIcon /> : <HeartFilledIcon />
                     }
 
                 </div>
@@ -48,9 +55,9 @@ export const Product = (props) => {
                         props.inCart === false ?
                             <div className={`${styles.inCartBlock} f-row-betw gap-20 w-100p`}>
                                 <Button onClick={() => props.actions.addToCart(props.id)} title={"В корзину"} />
-                                <div className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
+                                <div onClick={handleFavorites} className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
                                     {
-                                        true ? <HeartIcon /> : <HeartFilledIcon />
+                                        !props.inFavorites ? <HeartIcon /> : <HeartFilledIcon />
                                     }
 
                                 </div>
@@ -66,9 +73,9 @@ export const Product = (props) => {
                                         <p>+</p>
                                     </div>
                                 </div>
-                                <div className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
+                                <div onClick={handleFavorites} className={`${styles.favoriteMobileBtn} cur-pointer w-content`}>
                                     {
-                                        true ? <HeartIcon /> : <HeartFilledIcon />
+                                        !props.inFavorites ? <HeartIcon /> : <HeartFilledIcon />
                                     }
                                 </div>
                             </div>

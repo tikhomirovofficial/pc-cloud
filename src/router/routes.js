@@ -3,6 +3,7 @@ import { Conditions } from "../pages/Conditions";
 import { Favorites } from "../pages/Favorites";
 import { Main } from "../pages/Main";
 import { Order } from "../pages/Order";
+import { SuccessOrder } from "../pages/SuccessOrder";
 
 export const routes = {
     public: [
@@ -25,6 +26,10 @@ export const routes = {
         {
             path: "/favorites",
             Component: Favorites
+        },
+        {
+            path: "/success",
+            Component: SuccessOrder
         },
 
     ]

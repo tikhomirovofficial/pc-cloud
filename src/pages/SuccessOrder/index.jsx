@@ -3,6 +3,7 @@ import { AppContainer } from '../../components/containers/AppContainer'
 import styles from './successOrder.module.scss'
 import { SuccessIcon } from '../../icons'
 import { Button } from '../../components/Button'
+import { Link } from 'react-router-dom'
 
 export const SuccessOrder = () => {
     return (
@@ -16,11 +17,14 @@ export const SuccessOrder = () => {
                                 <h2 className="title">
                                     Заказ успешно оформлен!
                                 </h2>
-                                <p>Номер заказа <b>123</b>. Наш менеджер свяжется с вами.</p>
+                                <p>Наш менеджер свяжется с вами.</p>
                             </div>
                         </div>
                     </div>
-                    <Button title={"Вернуться в каталог"}/>
+                    <Link to={"/"}>
+                        <Button title={"Вернуться в каталог"} />
+                    </Link>
+
                 </div>
             </AppContainer>
         </section>

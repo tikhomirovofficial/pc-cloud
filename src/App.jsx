@@ -12,10 +12,13 @@ import { Favorites } from './pages/Favorites'
 import { AppRoutes } from './router/AppRoutes'
 import { useDispatch, useSelector } from 'react-redux'
 import { setTotalSum, setTotalSalesSum } from './app/features/cart/cartSlice'
+import { addToStorage } from './utils/localStorageExplorer'
 
 
 const App = () => {
   const cart = useSelector(state => state.cart)
+  const favorites = useSelector(state => state.favorites)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -25,10 +28,15 @@ const App = () => {
     const sumWithSales = cart.items.reduce((acc, cur) => {
       return acc + ((cur.sale_price || cur.price) * cur.count)
     }, 0)
+    
     dispatch(setTotalSalesSum(sumWithSales))
     dispatch(setTotalSum(totalSum))
-
+    addToStorage("cart", cart.items)
   }, [cart.items])
+
+  useEffect(() => {
+    addToStorage("favorites", favorites.items)
+  }, [favorites.items])
 
   return (
     <div className={"App f-column jc-between"}>

@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppContainer } from '../../components/containers/AppContainer'
 import styles from './order.module.scss'
 import { ArrowDownIcon, CardPay, CashPay, GeoIcon } from '../../icons'
 import { InputField } from '../../components/InputField'
 import { PaymentWay } from './PaymentWay'
 import { Button } from '../../components/Button'
+import { useDispatch, useSelector } from 'react-redux'
+import { createOrder, handleOrderForm, resetOrder } from '../../app/features/order/orderSlice'
+import { useNavigate } from 'react-router-dom'
+import { resetCart } from '../../app/features/cart/cartSlice'
 
 export const Order = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const { items, totalSum, totalSumWithSales } = useSelector(state => state.cart)
+    const { form, success } = useSelector(state => state.order)
+    const sumEquals = totalSum === totalSumWithSales
+
+    const sendOrder = () => {
+        dispatch(createOrder())
+    }
+
+    useEffect(() => {
+        if (success) {
+            navigate("/success")
+            dispatch(resetOrder())
+            dispatch(resetCart())
+        }
+
+    }, [success])
+
     return (
         <section className={styles.order}>
             <AppContainer>
@@ -24,12 +48,12 @@ export const Order = () => {
                                     <p className={styles.geoText}>Адрес доставки</p>
                                 </div>
                                 <div className="f-column gap-10">
-                                    <InputField placeholder={"Город"} />
-                                    <InputField placeholder={"Улица / Район"} />
+                                    <InputField placeholder={"Город"} val={form.city} onChange={(e) => dispatch(handleOrderForm({ key: "city", val: e.target.value }))} />
+                                    <InputField placeholder={"Улица / Район"} val={form.street} onChange={(e) => dispatch(handleOrderForm({ key: "street", val: e.target.value }))} />
                                     <div className="f-row-betw gap-5">
-                                        <InputField placeholder={"Дом"} />
-                                        <InputField placeholder={"Подъезд"} />
-                                        <InputField placeholder={"Квартира"} />
+                                        <InputField placeholder={"Дом"} val={form.house} onChange={(e) => dispatch(handleOrderForm({ key: "house", val: e.target.value }))} />
+                                        <InputField placeholder={"Подъезд"} val={form.entrance} onChange={(e) => dispatch(handleOrderForm({ key: "entrance", val: e.target.value }))} />
+                                        <InputField placeholder={"Квартира"} val={form.flat} onChange={(e) => dispatch(handleOrderForm({ key: "flat", val: e.target.value }))} />
                                     </div>
                                 </div>
                             </div>
@@ -40,51 +64,50 @@ export const Order = () => {
                                 <h3>Ваш заказ</h3>
                                 <div className="f-column gap-10">
                                     <div className="f-column gap-10">
-                                        <div className={`f-row-betw ${styles.product}`}>
-                                            <div className="d-f al-center gap-10">
-                                                <b>1</b>
-                                                <span>
-                                                    ×
-                                                </span>
-                                                <b>Телефон Iphone 13 Pro</b>
-                                            </div>
-                                            <div className="d-f al-center gap-10">
-                                                <div className={"p-rel"}>
-                                                    <p className={"salePrice"}>125 000 ₽</p>
-                                                    <div className="saleLine p-abs"></div>
+                                        {
+                                            items.map(item => (
+                                                <div className={`f-row-betw ${styles.product}`}>
+                                                    <div className="d-f al-center gap-10">
+                                                        <b>{item.count}</b>
+                                                        <span>
+                                                            ×
+                                                        </span>
+                                                        <b>{item.name}</b>
+                                                    </div>
+                                                    <div className="d-f al-center gap-10">
+                                                        {
+                                                            item.sale_price ?
+                                                                <div className={"p-rel"}>
+                                                                    <p className={"salePrice"}>{item.price} ₽</p>
+                                                                    <div className="saleLine p-abs"></div>
+                                                                </div> : null
+
+                                                        }
+                                                        <b className={"txt-nowrap"}>{(item.sale_price || item.price) * item.count} ₽</b>
+
+                                                    </div>
                                                 </div>
-                                                <b className={"txt-nowrap"}>80 999 ₽</b>
-                                            </div>
-                                        </div>
-                                        <div className={`f-row-betw ${styles.product}`}>
-                                            <div className="d-f al-center gap-10">
-                                                <b>1</b>
-                                                <span>
-                                                    ×
-                                                </span>
-                                                <b>Телефон Iphone 13 Pro</b>
-                                            </div>
-                                            <div className="d-f al-center gap-10">
-                                                <div className={"p-rel"}>
-                                                    <p className={"salePrice"}>125 000 ₽</p>
-                                                    <div className="saleLine p-abs"></div>
-                                                </div>
-                                                <b className={"txt-nowrap"}>80 999 ₽</b>
-                                            </div>
-                                        </div>
+                                            ))
+                                        }
+
+
                                     </div>
                                     <div className={`f-row-betw ${styles.product}`}>
                                         <b>Доставка</b>
-                                        <b className={"txt-nowrap"}>80 999 ₽</b>
+                                        <b className={"txt-nowrap"}>499 ₽</b>
                                     </div>
                                     <div className={`f-row-betw ${styles.product}`}>
                                         <b>ИТОГО:</b>
                                         <div className="d-f al-center gap-10">
-                                            <div className={"p-rel"}>
-                                                <p className={"salePrice"}>125 000 ₽</p>
-                                                <div className="saleLine p-abs"></div>
-                                            </div>
-                                            <b className={"txt-nowrap"}>80 999 ₽</b>
+                                            {
+                                                !sumEquals ?
+                                                    <div className={"p-rel"}>
+                                                        <p className={"salePrice"}>{totalSum} ₽</p>
+                                                        <div className="saleLine p-abs"></div>
+                                                    </div> : null
+
+                                            }
+                                            <b className={"txt-nowrap"}>{(!sumEquals ? totalSumWithSales : totalSum) + 499} ₽</b>
                                         </div>
                                     </div>
                                 </div>
@@ -92,15 +115,15 @@ export const Order = () => {
                             <PaymentWay />
                             <div className={`whiteShadow ${styles.total} p-rel f-column gap-20`}>
                                 <h3>Ваш номер</h3>
-                                <InputField placeholder={"+7"} />
+                                <InputField placeholder={"+7"} val={form.phone} onChange={(e) => dispatch(handleOrderForm({ key: "phone", val: e.target.value }))} />
                             </div>
-                            <Button className={styles.orderBtn} title={"Закончить оформление"}/>
+                            <Button onClick={sendOrder} disabled={!form.city || !form.street || !form.house || !form.flat || form.phone.length < 11} className={styles.orderBtn} title={"Закончить оформление"} />
 
                         </div>
                     </div>
                 </div>
             </AppContainer>
-        </section>
+        </section >
 
     )
 }
