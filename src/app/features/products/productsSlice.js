@@ -2,7 +2,80 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { productsResponse } from './productsResponse'
 
 const initialState = {
-    items: [],
+    items: [
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+        {
+            id: 0,
+            category: 1,
+            name: "",
+            price: 0,
+            sale_price: null,
+            rating: 0,
+            image: ""
+        },
+    ],
     categories: [
         {
             id: 1,

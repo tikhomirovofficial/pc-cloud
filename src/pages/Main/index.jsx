@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllProductsAndCategories } from '../../app/features/products/productsSlice'
 import { getProductsWithCategories } from '../../utils/productsStructure'
 import { useProduct } from '../../hooks/useProduct'
+import Skeleton from 'react-loading-skeleton'
 
 export const Main = () => {
     const dispatch = useDispatch()
@@ -37,15 +38,19 @@ export const Main = () => {
                 <AppContainer>
                     <div className="f-column gap-40">
                         {
-                            getProductsWithCategories(categories, items).map(item => (
+                            getProductsWithCategories(loading ? [categories[0]] : categories, items).map(item => (
                                 <div className={"f-column gap-20"}>
                                     <div className={`${styles.part} f-column gap-20`}>
-                                        <h3 className={"fw-6"}>{item.name}</h3>
+                                        {
+                                            !loading ? <h3 className={"fw-6"}>{item.name}</h3> : <Skeleton style={{ width: 100, height: 20, borderRadius: 6 }} />
+                                        }
+
                                     </div>
                                     <div className={"d-f gap-30 flex-wrap"}>
                                         {
                                             item.products.map(item => (
                                                 <Product
+                                                    loading={loading}
                                                     inCart={productActions.checkInCart(item.id)}
                                                     inFavorites={productActions.checkInFavorites(item.id)}
                                                     actions={productActions}

@@ -5,6 +5,7 @@ import { store } from './app/store'
 import { Provider } from 'react-redux'
 import './styles/index.css'
 import './styles/tikstyles.css'
+import 'react-loading-skeleton/dist/skeleton.css'
 import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
