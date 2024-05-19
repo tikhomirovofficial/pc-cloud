@@ -40,7 +40,9 @@ export const Order = () => {
                         <div className={`f-06 ${styles.form} whiteShadow f-column gap-30`}>
                             <div className="f-column gap-15">
                                 <h3>Доставка курьером</h3>
-                                <div className={styles.map}></div>
+                                <div className={`${styles.map} of-hide`}>
+                                    <iframe style={{ width: "100%", height: "100%" }} src="https://yandex.ru/map-widget/v1/?um=constructor%3A1bb9847573fb042eb8ec9213ae4f6fa5ada426f4c6bd3fc063f15cc9ac036d36&amp;source=constructor" frameborder="0"></iframe>
+                                </div>
                             </div>
                             <div className={`f-column gap-15 `}>
                                 <div className={"d-f gap-5 al-center"}>
@@ -66,19 +68,19 @@ export const Order = () => {
                                     <div className="f-column gap-10">
                                         {
                                             items.map(item => (
-                                                <div className={`f-row-betw ${styles.product}`}>
-                                                    <div className="d-f al-center gap-10">
+                                                <div className={`f-row-betw gap-10 ${styles.product}`}>
+                                                    <div className="d-f f-1 al-center gap-10">
                                                         <b>{item.count}</b>
                                                         <span>
                                                             ×
                                                         </span>
-                                                        <b>{item.name}</b>
+                                                        <b style={{ maxWidth: "80%" }}>{item.name}</b>
                                                     </div>
                                                     <div className="d-f al-center gap-10">
                                                         {
                                                             item.sale_price ?
                                                                 <div className={"p-rel"}>
-                                                                    <p className={"salePrice"}>{item.price} ₽</p>
+                                                                    <p className={"salePrice txt-nowrap"}>{item.price} ₽</p>
                                                                     <div className="saleLine p-abs"></div>
                                                                 </div> : null
 
@@ -96,7 +98,7 @@ export const Order = () => {
                                         <b>Доставка</b>
                                         <b className={"txt-nowrap"}>499 ₽</b>
                                     </div>
-                                    <div className={`f-row-betw ${styles.product}`}>
+                                    <div style={{paddingTop: 18, borderTop: "1px solid lightgray"}} className={`f-row-betw ${styles.product}`}>
                                         <b>ИТОГО:</b>
                                         <div className="d-f al-center gap-10">
                                             {

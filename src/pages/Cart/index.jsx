@@ -66,7 +66,9 @@ export const Cart = () => {
                         <div className={`f-column gap-40 al-center ${styles.emptyBlock}`}>
                             <EmptyCartIcon />
                             <h2 className='title'>Корзина пуста.</h2>
-                            <Button title={"Вернуться в каталог товаров"} />
+                            <Link to={"/"}>
+                                <Button title={"Вернуться в каталог товаров"} />
+                            </Link>
                         </div>
                 }
             </AppContainer>

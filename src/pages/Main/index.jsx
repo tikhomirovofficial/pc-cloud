@@ -7,6 +7,7 @@ import { getAllProductsAndCategories } from '../../app/features/products/product
 import { getProductsWithCategories } from '../../utils/productsStructure'
 import { useProduct } from '../../hooks/useProduct'
 import Skeleton from 'react-loading-skeleton'
+import { Element } from 'react-scroll'
 
 export const Main = () => {
     const dispatch = useDispatch()
@@ -39,7 +40,7 @@ export const Main = () => {
                     <div className="f-column gap-40">
                         {
                             getProductsWithCategories(loading ? [categories[0]] : categories, items).map(item => (
-                                <div className={"f-column gap-20"}>
+                                <Element name={`ctg-${item.id}`} key={item.id} className={"f-column gap-20"}>
                                     <div className={`${styles.part} f-column gap-20`}>
                                         {
                                             !loading ? <h3 className={"fw-6"}>{item.name}</h3> : <Skeleton style={{ width: 100, height: 20, borderRadius: 6 }} />
@@ -59,7 +60,7 @@ export const Main = () => {
                                             ))
                                         }
                                     </div>
-                                </div>
+                                </Element>
                             ))
                         }
                     </div>
